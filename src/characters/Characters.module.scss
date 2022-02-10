@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+
+}
+
+.element {
+  width: 250px;
+  height:  250px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #d1e7ed;
+  border-radius: 10px;
+}
