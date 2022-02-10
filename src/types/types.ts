@@ -7,7 +7,7 @@ export type CharacterType = {
     birth_year: string
     created: string
     edited: string
-    eye_color: "blue"
+    eye_color: string
     films: string[]
     gender: string
     homeworld: string

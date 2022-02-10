@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Character from '../character/Character';
 import axios from 'axios';
 import s from './Characters.module.scss'
+import {useNavigate} from "react-router-dom";
 
 
 type MainType = {
@@ -17,26 +18,28 @@ const Characters = () => {
 
     useEffect(() => {
         async function request() {
-            const response = await axios.get<any>('https://swapi.dev/api/people/')
+            const response = await axios.get<MainType>('https://swapi.dev/api/people/')
             //@ts-ignore
             setData(response.data.results)
         }
-            request()
+
+        request()
 
     }, [])
+    const navigate = useNavigate()
     return (
         <div className={s.container}>
-            {data.map((el,index)=> {
+            {data.map((el, index) => {
                 return (
                     <div key={index} className={s.element}>
                         <h2>gender: {el.name}</h2>
                         <div>gender: {el.gender}</div>
                         <div>height: {el.height}</div>
                         <div>mass: {el.mass}</div>
+                        <button onClick={() => navigate('/character')}>more information</button>
                     </div>
                 )
             })}
-            <Character/>
         </div>
     );
 }
