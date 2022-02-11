@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import Character from '../character/Character';
 import axios from 'axios';
 import s from './Characters.module.scss'
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import style from '.././mainStyle/MainStyle.module.scss'
 
 
 type MainType = {
@@ -35,7 +35,10 @@ const Characters = () => {
                         <div>gender: {el.gender}</div>
                         <div>height: {el.height}</div>
                         <div>mass: {el.mass}</div>
-                        <button onClick={() => navigate(`/character/${index+1}`)}>more information</button>
+                        <button onClick={() =>
+                            navigate(`/character/${index+1}`)} className={style.btn}>
+                            more
+                        </button>
                     </div>
                 )
             })}

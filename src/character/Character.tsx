@@ -30,7 +30,6 @@ const Character = () => {
     useEffect(() => {
         async function getCharacter() {
             const response = await axios.get<CharacterType>(`https://swapi.dev/api/people/${id}/`)
-                console.log(id)
             setData(response.data)
         }
         getCharacter()
