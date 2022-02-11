@@ -7,11 +7,10 @@ import Character from "./character/Character";
 function App() {
     return (
         <div className="App">
-           {/* <NavLink to={'/characters'}>characters</NavLink>*/}
             <Routes>
                 <Route path={'/characters'} element={<Characters/>}/>
                 <Route path={'/'} element={<Characters/>}/>
-                <Route path={'/character'} element={<Character/>}/>
+                <Route path={'/character/:id'} element={<Character/>}/>
             </Routes>
         </div>
     );

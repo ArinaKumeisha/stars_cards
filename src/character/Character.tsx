@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {CharacterType} from "../types/types";
+import {useParams} from "react-router-dom";
 
 const Character = () => {
     const [data, setData] = useState<CharacterType>({
@@ -19,23 +20,25 @@ const Character = () => {
         url: '',
         species: [],
         starships: [],
-        vehicles: []
+        vehicles: [],
     })
-    const values = Object.values(data)
+
+     const {id} = useParams<{id: string}>()
+    const values = Object.values(data).map((el, index) => {
+        return <div key={index}>{el}</div>
+    })
     useEffect(() => {
-        async function getCharacter(id: string) {
-            const response = await axios.get<CharacterType>(`https://swapi.dev/api/people/${id}`)
+        async function getCharacter() {
+            const response = await axios.get<CharacterType>(`https://swapi.dev/api/people/${id}/`)
+                console.log(id)
             setData(response.data)
         }
-
-        getCharacter('3')
-    }, [])
+        getCharacter()
+    }, [id])
 
     return (
         <div>
-            {values.map((el, index) => {
-                return <div key={index}>{el}</div>
-            })}
+            {values}
         </div>
     );
 };
