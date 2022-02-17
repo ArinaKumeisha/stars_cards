@@ -1,49 +1,47 @@
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
-import s from './Characters.module.scss'
-import {useNavigate} from "react-router-dom";
-import style from '.././mainStyle/MainStyle.module.scss'
+import React from 'react';
+import OneCharacter from "../character/oneCharacter/OneCharacter";
+import s from "./Characters.module.scss";
+import Buttons from "../buttons/Buttons";
+import Basket from "../character/basket/Basket";
 
 
-type MainType = {
-    name: string
-    gender: string
-    mass: string
-    height: string
+export type MainType = {
+    name?: string
+    gender?: string
+    mass?: string
+    height?: string
+}
+
+type PropsType = {
+    data: MainType[]
+    setData: (value: MainType[]) => void
+    valueArr: MainType[]
+    setValueArr: (value: MainType[]) => void
 
 }
-const Characters = () => {
-    const [data, setData] = useState<MainType[]>([])
-
-    useEffect(() => {
-        async function request() {
-            const response = await axios.get<MainType>('https://swapi.dev/api/people/')
-            //@ts-ignore
-            setData(response.data.results)
-        }
-
-        request()
-
-    }, [])
-    const navigate = useNavigate()
+const Characters = ({data, setData, valueArr, setValueArr}: PropsType) => {
     return (
         <div className={s.container}>
-            {data.map((el, index) => {
-                return (
-                    <div key={index} className={s.element}>
-                        <h2>gender: {el.name}</h2>
-                        <div>gender: {el.gender}</div>
-                        <div>height: {el.height}</div>
-                        <div>mass: {el.mass}</div>
-                        <button onClick={() =>
-                            navigate(`/character/${index+1}`)} className={style.btn}>
-                            more
-                        </button>
-                    </div>
-                )
-            })}
-        </div>
-    );
-}
+            {data.map((el, index) =>
+                <>
+                <div className={s.element}>
+                    <OneCharacter
+                    character={el}
+                    data={data}/>
 
+                        <Buttons id={index + 1}
+                                 data={data}
+                                 character={el}
+                                 valueArr={valueArr}
+                                 setValueArr={setValueArr}
+                        />
+                </div>
+                        <Basket valueArr={valueArr}/>
+
+                </>
+            )}
+
+        </div>
+    )
+}
 export default Characters;

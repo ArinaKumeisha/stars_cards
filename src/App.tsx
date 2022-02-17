@@ -1,18 +1,20 @@
 import React from 'react';
-import {NavLink, Route, Routes} from 'react-router-dom';
 import './App.css';
-import Characters from "./characters/Characters";
+import HomePage from "./home-page/HomePage";
+import NavLinks from "./navlinks/Navlinks";
+import {Route, Routes} from "react-router-dom";
 import Character from "./character/Character";
-import Navlinks from "./navlinks/Navlinks";
+import Basket from "./character/basket/Basket";
 
 function App() {
+
     return (
         <div className="App">
-            <Navlinks/>
+            <NavLinks/>
             <Routes>
-                <Route path={'/characters'} element={<Characters/>}/>
-                <Route path={'/'} element={<Characters/>}/>
+                <Route path={'/'} element={<HomePage/>}/>
                 <Route path={'/character/:id'} element={<Character/>}/>
+                <Route path={'/basket'} element={<Basket valueArr={[]}/>}/>
             </Routes>
         </div>
     );
