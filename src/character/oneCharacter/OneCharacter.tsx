@@ -1,7 +1,5 @@
 import React from 'react';
 import {MainType} from "../../characters/Characters";
-import s from "../../characters/Characters.module.scss";
-import Buttons from "../../buttons/Buttons";
 
 type PropsType = {
     character: MainType

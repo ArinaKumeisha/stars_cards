@@ -1,5 +1,6 @@
-.App {
+.app {
   text-align: center;
+  position: relative;
 }
 
 .App-logo {
@@ -13,7 +14,7 @@
   }
 }
 
-.App-header {
+.app-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -25,7 +26,7 @@
   max-width: 1000px;
 }
 
-.App-link {
+.app-link {
   color: #61dafb;
 }
 
@@ -36,4 +37,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+.container {
+  width: 100%;
+  height: 40px;
+  background-color: #3b7e90;
+  padding: 20px;
+  text-align: right;
+  @media (max-width: 685px) {
+    text-align: left;
+  }
+}
+
+.basket {
+  white-space: nowrap;
+}
+
+
+a{
+  margin: 50px;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+a:hover {
+  color: #61dafb
 }

@@ -1,15 +1,20 @@
 import React from 'react';
 import {BasketType} from "./Basket";
+import style from "./Basket.module.scss";
 
-const BasketMenu = ({valueArr}: BasketType) => {
+const BasketMenu = ({valueArr, setModal, modal}: BasketType) => {
     return (
-        <div >
-            <h4>{valueArr.length}</h4>
-            {valueArr.map((el, index) =>
-                <div key={index}>name: {el.name}</div>
+        <div>{valueArr.length > 0 &&
+            <div className={style.container}
+                 onClick={() => setModal(true)}>
+
+                {valueArr.length > 0 && valueArr.map((el) =>
+                    <div key={el.height} className={style.element}>name: {el.name}</div>
                 )}
+            </div>
+        }
         </div>
-    );
-};
+    )
+}
 
 export default BasketMenu;

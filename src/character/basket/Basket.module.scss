@@ -1,9 +1,20 @@
 .container {
   position: absolute;
   width: 200px;
-  background-color: #61dafb;
+  background-color: #415673;
   z-index: 3;
   right: 50px;
-  min-height: 50px;
+  top: 70px;
+  padding: 20px;
+  color: white;
+  border-radius: 25px;
+  box-shadow: 5px 5px 5px #453b3b;
 
+  @media(max-width: 400px) {
+    top: 60px;
+  }
+  .element {
+    font-weight: bold;
+    font-size: 17px;
+  }
 }

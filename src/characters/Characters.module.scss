@@ -3,14 +3,21 @@
   justify-content: space-between;
   width: 100%;
   flex-wrap: wrap;
+  position: relative;
 
+@media(max-width: 684px) {
+  justify-content: center;
 }
-
-.element {
-  width: 250px;
-  height:  250px;
-  margin: 20px;
-  padding: 20px;
-  background-color: #d1e7ed;
-  border-radius: 10px;
+  .element {
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #d1e7ed;
+    border-radius: 10px;
+    box-shadow: 10px 5px 10px #453b3b;
+    @media (max-width: 684px) {
+      width: 300px;
+    }
+  }
 }

@@ -1,32 +1,45 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from "../mainStyle/MainStyle.module.scss";
 import {useNavigate} from "react-router-dom";
 import {MainType} from "../characters/Characters";
+import axios from "axios";
 
 
 type PropsType = {
-    id: any
+    id: number
     data: MainType[]
     character: MainType
     setValueArr: (value: MainType[]) => void
     valueArr: MainType[]
+    //modal: boolean
+    setModal: (value: boolean)=>void
 }
 
-const Buttons = ({id, data, character, setValueArr, valueArr}: PropsType) => {
+const Buttons = ({id,
+                     data,
+                     character,
+                     setValueArr,
+                     valueArr,
+                     setModal,
+                     }: PropsType) => {
     const [isValue, setIsValue] = useState(false)
 
-    function addStars(e: any) {
+
+    async  function  addStars(e: any) {
         e.stopPropagation()
-        const newValue = data.filter(el => el.name === character.name)
-        setValueArr([...valueArr, ...newValue])
-        setIsValue(!isValue)
+        const newArr = data.find(el => el.name === character.name)
+        if(newArr)
+        setValueArr([...valueArr, newArr])
+        setIsValue(true)
+        setModal(true)
     }
 
     function deleteStars(e: any) {
         e.stopPropagation()
-        const newArr = valueArr.filter(el => el.name !== character.name)
+        const newArr = valueArr.filter((el: MainType) => el.name !== character.name)
         setValueArr(newArr)
-        setIsValue(!isValue)
+        setIsValue(false)
+        setModal(true)
     }
 
     const navigate = useNavigate()
@@ -36,8 +49,8 @@ const Buttons = ({id, data, character, setValueArr, valueArr}: PropsType) => {
                 navigate(`/character/${id}`)} className={style.btn}>
                 more
             </button>
-            {isValue ? <button onClick={deleteStars}>delete</button> :
-                <button onClick={addStars}>add</button>}
+            {isValue ? <button onClick={deleteStars} className={style.grayBtn}>delete</button> :
+                <button onClick={addStars} className={style.btn}>add</button>}
         </div>
     );
 };

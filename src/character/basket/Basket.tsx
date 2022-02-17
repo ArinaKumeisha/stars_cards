@@ -1,19 +1,18 @@
 import React from 'react';
 import {MainType} from "../../characters/Characters";
-import style from './Basket.module.scss'
 import BasketMenu from "./BasketMenu";
 
 export type BasketType = {
     valueArr: MainType[]
+    modal: boolean
+    setModal:(value: boolean)=> void
 }
 
-const Basket = ({valueArr}: BasketType) => {
-    //const [showBasket, setShowBasket] = useState(false)
+const Basket = ({valueArr,modal, setModal}: BasketType) => {
     return (<>
-            {valueArr.length > 0 &&
-                <div className={style.container}>
-                    <BasketMenu valueArr={valueArr}/>
-                </div>}
+            {
+               modal ? <BasketMenu valueArr={valueArr} setModal={setModal} modal={modal}/> : ''}
+
         </>
     )
 };

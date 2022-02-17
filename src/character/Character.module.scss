@@ -1,0 +1,23 @@
+.block {
+  display: inline-block;
+  justify-content: center;
+  margin: 30px auto;
+
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    background-color: #84888c;
+    width: 400px;
+    align-items: center;
+    border-radius: 30px;
+    color: white;
+    box-shadow: 10px 10px 20px #453b3b;
+    @media(max-width: 600px){
+      width: 300px;
+    }
+  }
+  span {
+    color: #00ffea;
+  }
+}
