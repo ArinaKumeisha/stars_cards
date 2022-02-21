@@ -4,15 +4,11 @@ import BasketMenu from "./BasketMenu";
 
 export type BasketType = {
     valueArr: MainType[]
-    modal: boolean
-    setModal:(value: boolean)=> void
 }
 
-const Basket = ({valueArr,modal, setModal}: BasketType) => {
+const Basket = ({valueArr}: BasketType) => {
     return (<>
-            {
-               modal ? <BasketMenu valueArr={valueArr} setModal={setModal} modal={modal}/> : ''}
-
+              <BasketMenu valueArr={valueArr}/>
         </>
     )
 };

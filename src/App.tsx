@@ -9,7 +9,6 @@ import style from './App.module.scss';
 
 function App() {
     const [valueArr, setValueArr] = useState<MainType[]>([])
-    const [modal, setModal] = useState(false)
     return (
         <div className={style.app}>
             <div className={style.container}>
@@ -20,20 +19,18 @@ function App() {
                 </NavLink>
             </div>
 
-            <div onClick={() => setModal(!modal)} >
+            <div >
                 <Routes>
                     <Route path={'/'} element={<HomePage
                         valueArr={valueArr}
                         setValueArr={setValueArr}
-                        modal={modal}
-                        setModal={setModal}/>}/>
+                       />}/>
 
                     <Route path={'/character/:id'} element={<Character/>}/>
 
                     <Route path={'/basket'} element={<Basket
                         valueArr={valueArr}
-                        setModal={setModal}
-                        modal={modal}/>}/>
+                        />}/>
                 </Routes>
             </div>
         </div>

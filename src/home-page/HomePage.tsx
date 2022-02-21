@@ -6,10 +6,9 @@ import style from './HomePage.module.scss'
 type HomePageType = {
     valueArr: MainType[]
     setValueArr: (value: MainType[]) => void
-    modal: boolean
-    setModal:(value: boolean) => void
+
 }
-const HomePage = ({valueArr, setValueArr, modal, setModal}: HomePageType) => {
+const HomePage = ({valueArr, setValueArr}: HomePageType) => {
 
     const [data, setData] = useState<MainType[]>([])
 
@@ -29,8 +28,7 @@ const HomePage = ({valueArr, setValueArr, modal, setModal}: HomePageType) => {
                 data={data}
                 valueArr={valueArr}
                 setValueArr={setValueArr}
-                modal={modal}
-                setModal={setModal}
+
             />
         </div>)
 }

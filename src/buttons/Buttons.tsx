@@ -11,8 +11,6 @@ type PropsType = {
     character: MainType
     setValueArr: (value: MainType[]) => void
     valueArr: MainType[]
-    //modal: boolean
-    setModal: (value: boolean)=>void
 }
 
 const Buttons = ({id,
@@ -20,7 +18,6 @@ const Buttons = ({id,
                      character,
                      setValueArr,
                      valueArr,
-                     setModal,
                      }: PropsType) => {
     const [isValue, setIsValue] = useState(false)
 
@@ -31,7 +28,6 @@ const Buttons = ({id,
         if(newArr)
         setValueArr([...valueArr, newArr])
         setIsValue(true)
-        setModal(true)
     }
 
     function deleteStars(e: any) {
@@ -39,7 +35,6 @@ const Buttons = ({id,
         const newArr = valueArr.filter((el: MainType) => el.name !== character.name)
         setValueArr(newArr)
         setIsValue(false)
-        setModal(true)
     }
 
     const navigate = useNavigate()

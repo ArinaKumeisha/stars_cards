@@ -16,11 +16,9 @@ type PropsType = {
     data: MainType[]
     valueArr: MainType[]
     setValueArr: (value: MainType[]) => void
-    modal: boolean
-    setModal: (value: boolean) => void
 
 }
-const Characters = ({data, valueArr, setValueArr, modal, setModal}: PropsType) => {
+const Characters = ({data, valueArr, setValueArr}: PropsType) => {
 
     return (
         <div className={s.container}>
@@ -37,12 +35,8 @@ const Characters = ({data, valueArr, setValueArr, modal, setModal}: PropsType) =
                                      character={el}
                                      valueArr={valueArr}
                                      setValueArr={setValueArr}
-                                     setModal={setModal}
                             />
                         </div>
-                        <Basket valueArr={valueArr}
-                                modal={modal}
-                                setModal={setModal}/>
 
                     </div>
                 )

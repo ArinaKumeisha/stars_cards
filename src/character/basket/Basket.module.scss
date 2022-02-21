@@ -1,20 +1,23 @@
-.container {
-  position: absolute;
-  width: 200px;
-  background-color: #415673;
-  z-index: 3;
-  right: 50px;
-  top: 70px;
-  padding: 20px;
-  color: white;
-  border-radius: 25px;
-  box-shadow: 5px 5px 5px #453b3b;
+.block {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .container {
 
-  @media(max-width: 400px) {
-    top: 60px;
-  }
-  .element {
-    font-weight: bold;
-    font-size: 17px;
+    width: 200px;
+    max-height: 500px;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 5px 5px 5px #453b3b;
+
+    @media(max-width: 400px) {
+      top: 60px;
+    }
+
+    .element {
+      font-weight: bold;
+      font-size: 17px;
+    }
   }
 }
